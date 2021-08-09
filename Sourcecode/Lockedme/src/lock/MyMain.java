@@ -9,6 +9,64 @@ public class MyMain
 	static final String folderpath="C:\\Users\\hi\\Desktop\\fsdproject\\LockerFiles";
 	public static void main(String[] args) 
 	{
+		int proceed=1;
+		
+		do
+		{
+			int ch;
+			
+			ch=displayMenu();
+			
+			switch(ch)
+			{
+				case 1 : getAllFiles();
+							break;
+				case 2 : createFile();
+							break;
+				case 3 : deleteFile();
+							break;
+				case 4 : searchFile();
+							break;
+				case 5 : System.exit(0);
+							break;
+				default : System.out.println("Invalid Option");
+							break;
+			}
+			
+		}
+		while(proceed>0);
+	}
+	
+	public static int displayMenu()
+	{
+		Scanner obj = new Scanner(System.in);
+		int ch;
+		System.out.println("====================================================");
+		System.out.println("**************LockedMe Project**********************");
+		System.out.println("====================================================");
+		System.out.println("1. Display all Files");
+		System.out.println("2. Create new File");
+		System.out.println("3. Delete a File");
+		System.out.println("4. Search a File");
+		System.out.println("5. Exit");
+		System.out.println("====================================================");
+		System.out.println("Enter your choice:");
+		ch=Integer.parseInt(obj.nextLine());
+		
+		//obj.close();
+		return ch;
+		
+		
+	}
+	public static void getAllFiles()
+	{
+		List<String> fileName = MainManager.getAllFiles(folderpath);
+		
+		for(String f:fileName)
+			System.out.println(f);
+	}
+	public static void createFile()
+	{
 		Scanner obj = new Scanner(System.in);
 		String fileName;
 		int linesCount;
@@ -33,7 +91,38 @@ public class MyMain
 		else
 			System.out.println("Error occured");
 		
-		obj.close();
+		
 	}
-
+	public static void deleteFile()
+	{
+		String fileName;
+		var obj = new Scanner(System.in);
+		System.out.println("Enter file name to be deleted:");
+		fileName=obj.nextLine();
+		
+		boolean isDeleted = MainManager.deleteFile(folderpath, fileName);
+		
+		if(isDeleted)
+			System.out.println("File is deleted");
+		else
+			System.out.println("File not found or Some issue occured");
+		
+	}
+	public static void searchFile()
+	{
+		String fileName;
+		Scanner obj = new Scanner(System.in);
+		System.out.println("Enter file name to be searched:");
+		fileName=obj.nextLine();
+		
+		boolean isSearched = MainManager.searchFile(folderpath, fileName);
+		
+		if(isSearched)
+			System.out.println("File is present");
+		else
+			System.out.println("File not found or Some issue occured");
+		
+		
+	}
+	
 }

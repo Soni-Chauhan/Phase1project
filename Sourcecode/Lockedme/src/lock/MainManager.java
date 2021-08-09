@@ -18,12 +18,12 @@ public class MainManager
 		
 		File[] listofFiles = fl.listFiles();
 		
-		List<String> fileNames = new ArrayList<String>();
+		List<String> fileName = new ArrayList<String>();
 		
 		for(File f:listofFiles)
-			fileNames.add(f.getName());
+			fileName.add(f.getName());
 		
-		return fileNames;
+		return fileName;
 	}
 	
 	/**
@@ -54,4 +54,43 @@ public class MainManager
 		}
 	}
 
+	/**
+	 * This method will delete file
+	 * @param folderpath
+	 * @param fileName
+	 * @return boolean
+	 */
+	public static boolean deleteFile(String folderpath, String fileName)
+
+	{
+		File file = new File(folderpath+"\\"+fileName);
+		
+		try
+		{
+			if(file.delete())
+				return true;
+			else
+				return false;
+		}
+		catch(Exception Ex)
+		{
+			return false;
+		}
+	}
+	
+	/**
+	 * This method will search file
+	 * @param folderpath
+	 * @param fileName
+	 * @return boolean
+	 */
+	public static boolean searchFile(String folderpath, String fileName)
+	{
+		File file = new File(folderpath+"\\"+fileName);
+		
+		if(file.exists())
+			return true;
+		else
+			return false;
+	}
 }
