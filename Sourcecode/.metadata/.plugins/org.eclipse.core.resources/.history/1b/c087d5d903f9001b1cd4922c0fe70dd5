@@ -1,0 +1,12 @@
+package lock;
+
+public class MyMain 
+{
+	static final String folderpath="C:\\Users\\hi\\Desktop\\fsdproject\\LockerFiles";
+	public static void main(String[] args) 
+	{
+		
+
+	}
+
+}

@@ -1,0 +1,17 @@
+package lock;
+
+import java.util.List;
+
+public class MyMain 
+{
+	static final String folderpath="C:\\Users\\hi\\Desktop\\fsdproject\\LockerFiles";
+	public static void main(String[] args) 
+	{
+		List<String> fileNames = MainManager.getAllFiles(folderpath);
+		
+		for(String f:fileNames)
+			System.out.println(f);
+
+	}
+
+}
