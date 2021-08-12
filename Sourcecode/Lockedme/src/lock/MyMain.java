@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MyMain 
-{
+{	
+	//folder path 
 	static final String folderpath="C:\\Users\\hi\\Desktop\\fsdproject\\LockerFiles";
 	public static void main(String[] args) 
 	{
@@ -37,6 +38,7 @@ public class MyMain
 		while(proceed>0);
 	}
 	
+	//display method to display options
 	public static int displayMenu()
 	{
 		Scanner obj = new Scanner(System.in);
@@ -53,11 +55,13 @@ public class MyMain
 		System.out.println("Enter your choice:");
 		ch=Integer.parseInt(obj.nextLine());
 		
-		//obj.close();
+		
 		return ch;
 		
 		
 	}
+	
+	//get method()  to get all files which are present
 	public static void getAllFiles()
 	{
 		List<String> fileName = MainManager.getAllFiles(folderpath);
@@ -65,6 +69,8 @@ public class MyMain
 		for(String f:fileName)
 			System.out.println(f);
 	}
+	
+	//method to create files
 	public static void createFile()
 	{
 		Scanner obj = new Scanner(System.in);
@@ -93,10 +99,12 @@ public class MyMain
 		
 		
 	}
+	
+	//method to delete the file
 	public static void deleteFile()
 	{
 		String fileName;
-		var obj = new Scanner(System.in);
+		Scanner obj = new Scanner(System.in);
 		System.out.println("Enter file name to be deleted:");
 		fileName=obj.nextLine();
 		
@@ -108,6 +116,8 @@ public class MyMain
 			System.out.println("File not found or Some issue occured");
 		
 	}
+	
+	//method to search file 
 	public static void searchFile()
 	{
 		String fileName;
